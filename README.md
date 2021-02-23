@@ -9,6 +9,7 @@ https://eslint.org/docs/rules/#stylistic-issues
 
 #### Spacing Issues:
 array-bracket-spacing (never)
+
 block-spacing (always)
 comma-spacing (after)
 no-trailing-spaces
