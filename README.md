@@ -3,47 +3,36 @@
 possibility of using it in future projects
 
 93 original rules
-Based on EsLint Stylistic rules
+Based on ESLint Stylistic rules
 https://eslint.org/docs/rules/#stylistic-issues
 
 
-array-bracket-newline
-array-bracket-spacing
-block-spacing
+
+array-bracket-spacing (never)
+block-spacing (always)
 brace-style (using 1 true brace style)
-camelcase
-! capitalized-comments
-comma-dangle
-comma-spacing
-computed-property-spacing
-eol-last
-func-call-spacing
-function-call-argument-newline
-! function-paren-newline
-! id-length
-indent
-key-spacing
-!! keyword-spacing
-!lines-around-comment
-lines-between-class-memebers
-!max-depth
-!max-lines-per-function
-!max-nested-callbacks
-!new-cap
-!new-parens
-!no-mixed-spaces-and-tabs
-no-multiple-empty-lines
+camelcase (always)
+comma-dangle (never)
+comma-spacing (after)
+computed-property-spacing (never)
+eol-last (always)
+func-call-spacing (never)
+function-call-argument-newline (never)
+function-paren-newline (never)
+indent (tab)
+key-spacing (beforeColon:false, afterColon:true)
+keyword-spacing (before:true, after:true)
+lines-between-class-members
+max-depth (max:4)
+no-multiple-empty-lines (max:2)
 no-trailing-spaces
-!object-property-newline
-!one-var
-!prefer-exponentiation-operator
-semi
-semi-spacing
-space-before-blocks
-space-in-parens (disallow)
+one-var (always)
+prefer-exponentiation-operator
+semi (always)
+semi-spacing (before: false, after: true)
+space-before-blocks (always)
+space-in-parens (never)
 space-infix-ops
-!space-unary-ops
-!spaced-comment
-switch-colon-spacing
-template-tag-spacing
+spaced-comment (always)
+switch-colon-spacing (before: false, after: true)
 wrap-regex
