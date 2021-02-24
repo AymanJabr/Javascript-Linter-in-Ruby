@@ -1,10 +1,23 @@
 require_relative './Issue'
 
 class Syntax < Issue
+
+  def initialize
+    @@syntax_issues = 0
+    @@final_syntax_string = ""
+  end
+
+
+  def output_to_Issue
+    @@no_of_issue += @@syntax_issues
+    @@final_outputted_string += @@final_syntax_string
+  end
+
   def camelcase(line,index)
   
     if line.match(/\S_\S/)
-      return "There was an error at line #{index}"
+      @@final_syntax_string += "use camelCase for variable names at line #{index} \n"
+        @@syntax_issues += 1
     end
   
   end
@@ -12,7 +25,8 @@ class Syntax < Issue
   def semi(line,index)
   
     if line.match(/(\}[^;]|(?<!\{).*)[^;]$/)
-      return "There was an error at line #{index}"
+      @@final_syntax_string += "; syntax issue at line #{index} \n"
+        @@syntax_issues += 1
     end
   
   end
@@ -20,14 +34,16 @@ class Syntax < Issue
   def prefer_exponentiation_operator(line,index)
   
     if line.match(/Math\.pow/)
-      return "There was an error at line #{index}"
+      @@final_syntax_string += "use ** instead of Math.pow at line #{index} \n"
+        @@syntax_issues += 1
     end
   end
 
   def wrap_regex(line,index)
   
     if line.match(/[^\(](?<!https)(\/.+\/)[^\)]/)
-      return "There was an error at line #{index}"
+      @@final_syntax_string += "wrap regex in () at line #{index} \n"
+        @@syntax_issues += 1
     end
 
   end
