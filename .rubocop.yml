@@ -59,8 +59,6 @@ Naming/FileName:
   Enabled: false
 Lint/LiteralAsCondition:
   Enabled: false
-Lint/MissingSuper:
-  Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
 Metrics/PerceivedComplexity:
