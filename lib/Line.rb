@@ -1,7 +1,13 @@
 require_relative './Issue'
 
 class Line < Issue
-  def eol_last; end
+  def eol_last(text)
+    
+    if text.match(/\n$/)
+      return "this works"
+    end  
+  
+  end
 
   def no_multiple_empty_lines; end
 
