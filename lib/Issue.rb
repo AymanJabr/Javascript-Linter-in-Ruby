@@ -1,16 +1,16 @@
 class Issue
-
   def initialize
     @@no_of_issue = 0
-    @@final_outputted_string = ""
+    @@final_outputted_string = ''
   end
 
   def final_string
-    if @@no_of_issue == 0 then
-      return "No Issues detected"
+    if @@no_of_issue.zero?
+      return 'No Issues detected'
     else
       @@final_outputted_string += "\n#{@@no_of_issue} Issues detected"
     end
+
     nil
   end
 
