@@ -16,7 +16,7 @@ class Spacing < Issue
   end
 
   def array_bracket_spacing(line, index)
-    if line.include? '[' && !line.match(/.*\[.+/)
+    if line.match?(/\[/) && !line.match(/.*\[.+/)
       add_spacing_issue
       return "\[ spacing issue at line #{index} \n"
     end
@@ -38,7 +38,7 @@ class Spacing < Issue
   end
 
   def comma_spacing(line, index)
-    if line.include? ',' && (line.match(/.* ,/) or line.match(/,[^ ]/))
+    if line.match( /,/) && (line.match(/.* ,/) or line.match(/,[^ ]/))
       add_spacing_issue
       return ", spacing issue at line #{index} \n"
     end
@@ -70,7 +70,7 @@ class Spacing < Issue
   end
 
   def semi_spacing(line, index)
-    if line.include? ';' && (line.match(/.* ;/) or line.match(/;[^ ]/))
+    if line.match(/;/) && (line.match(/.* ;/) or line.match(/;[^ ]/))
       add_spacing_issue
       return "; spacing issue at line #{index} \n"
     end
@@ -79,7 +79,7 @@ class Spacing < Issue
   end
 
   def key_spacing(line, index)
-    if line.include? ':' && (line.match(/.* :/) or line.match(/(?<!https):[^ ]/))
+    if line.match(/:/) && (line.match(/.* :/) or line.match(/(?<!https):[^ ]/))
       add_spacing_issue
       return ": spacing issue at line #{index} \n"
     end
