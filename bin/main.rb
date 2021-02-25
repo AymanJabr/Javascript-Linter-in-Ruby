@@ -6,16 +6,11 @@ issue = Issue.new
 spacing = Spacing.new
 syntax = Syntax.new
 
-entire_file = File.read('./mainTest.js')
+entire_file = File.read('../javascriptTests/block-spacing.js')
 
 line_by_line = entire_file.split("\n")
-line_by_line_with_n = line_by_line
 
-line_by_line_with_n.map do |line|
-  line += "\n"
-end
-
-line_by_line_with_n.each_with_index do |line, line_index|
+line_by_line.each_with_index do |line, line_index|
   current_line = line_index + 1
 
   spacing.array_bracket_spacing(line, current_line)
@@ -32,7 +27,6 @@ line_by_line_with_n.each_with_index do |line, line_index|
   spacing.space_in_parens(line, current_line)
   syntax.wrap_regex(line, current_line)
   syntax.camelcase(line, current_line)
-  syntax.semi(line, current_line)
   syntax.prefer_exponentiation_operator(line, current_line)
 end
 

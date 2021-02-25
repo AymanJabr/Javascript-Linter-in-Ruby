@@ -3,7 +3,7 @@ require_relative './Issue'
 class Spacing < Issue
   def initialize
     @@spacing_issues = 0
-    @@final_spacing_string = ''
+    @@final_spacing_string = ""
   end
 
   def add_spacing_issue
@@ -12,12 +12,13 @@ class Spacing < Issue
 
   def output_to_Issue
     @@no_of_issue += @@spacing_issues
-    @@final_outputted_string += @@final_spacing_string
+    @@final_outputted_string += "\t #{@@spacing_issues} SPACING Issues detected: \n" + @@final_spacing_string
   end
 
   def array_bracket_spacing(line, index)
-    if line.match?(/\[/) && !line.match(/.*\[.+/)
+    if line.match(/\s\[\s/)
       add_spacing_issue
+      @@final_spacing_string += "\[ spacing issue at line #{index} \n"
       return "\[ spacing issue at line #{index} \n"
     end
 
@@ -31,6 +32,7 @@ class Spacing < Issue
       multiple_mistakes += "\{ spacing issue at line #{index} \n" if line.match(/.*[^ ]\}.*/)
       if multiple_mistakes != ''
         add_spacing_issue
+        @@final_spacing_string += multiple_mistakes
         return multiple_mistakes
       end
     end
@@ -40,6 +42,7 @@ class Spacing < Issue
   def comma_spacing(line, index)
     if line.match( /,/) && (line.match(/.* ,/) or line.match(/,[^ ]/))
       add_spacing_issue
+      @@final_spacing_string += ", spacing issue at line #{index} \n"
       return ", spacing issue at line #{index} \n"
     end
     nil
@@ -48,6 +51,7 @@ class Spacing < Issue
   def no_trailing_spaces(line, index)
     if line.match(/ +$/)
       add_spacing_issue
+      @@final_spacing_string += "trailing space issue at line #{index} \n"
       return "trailing space issue at line #{index} \n"
     end
     nil
@@ -56,6 +60,7 @@ class Spacing < Issue
   def computed_property_spacing(line, index)
     if line.match(/\[ .*\]/) or line.match(/\[.* \]/)
       add_spacing_issue
+      @@final_spacing_string += "\[\] spacing issue at line #{index} \n"
       return "\[\] spacing issue at line #{index} \n"
     end
     nil
@@ -64,6 +69,7 @@ class Spacing < Issue
   def func_call_spacing(line, index)
     if line.match(/(?<!if|return|for) \(.*\)/) or line.match(/^\(.*\)/)
       add_spacing_issue
+      @@final_spacing_string += "\(\) spacing issue at line #{index} \n"
       return "\(\) spacing issue at line #{index} \n"
     end
     nil
@@ -72,6 +78,7 @@ class Spacing < Issue
   def semi_spacing(line, index)
     if line.match(/;/) && (line.match(/.* ;/) or line.match(/;[^ ]/))
       add_spacing_issue
+      @@final_spacing_string += "; spacing issue at line #{index} \n"
       return "; spacing issue at line #{index} \n"
     end
 
@@ -81,6 +88,7 @@ class Spacing < Issue
   def key_spacing(line, index)
     if line.match(/:/) && (line.match(/.* :/) or line.match(/(?<!https):[^ ]/))
       add_spacing_issue
+      @@final_spacing_string += ": spacing issue at line #{index} \n"
       return ": spacing issue at line #{index} \n"
     end
 
@@ -92,6 +100,7 @@ class Spacing < Issue
   def keyword_spacing(line, index)
     if line.match?(/(^ |.+[^ ])(\bas\b|\basync\b|\bbreak\b|\bcase\b|\bcatch\b|\bclass\b|\bconst\b|\bcontinue\b|\bdebugger\b|\bdefault\b|\bdelete\b|\bdo\b|\belse\b|\bexport\b|\bextends\b|\bfinally\b|\bfor\b|\bfrom\b|\bfunction\b|\bget\b|\bif\b|\bimport\b|\bin\b|\binstanceof\b|\blet\b|\bnew\b|\bof\b|\breturn\b|\bset\b|\bstatic\b|\bsuper\b|\bswitch\b|\bthis\b|\bthrow\b|\btry\b|\btypeof\b|\bvar\b|\bvoid\b|\bwhile\b|\bwith\b|\byield\b)/) or line.match?(/(\bas\b|\basync\b|\bbreak\b|\bcase\b|\bcatch\b|\bclass\b|\bconst\b|\bcontinue\b|\bdebugger\b|\bdefault\b|\bdelete\b|\bdo\b|\belse\b|\bexport\b|\bextends\b|\bfinally\b|\bfor\b|\bfrom\b|\bfunction\b|\bget\b|\bif\b|\bimport\b|\bin\b|\binstanceof\b|\blet\b|\bnew\b|\bof\b|\breturn\b|\bset\b|\bstatic\b|\bsuper\b|\bswitch\b|\bthis\b|\bthrow\b|\btry\b|\btypeof\b|\bvar\b|\bvoid\b|\bwhile\b|\bwith\b|\byield\b)(\S.*| $)/)
       add_spacing_issue
+      @@final_spacing_string += "keyword spacing issue at line #{index} \n"
       return "keyword spacing issue at line #{index} \n"
     end
   end
@@ -100,6 +109,7 @@ class Spacing < Issue
   def indent(line, index)
     unless line.match(/(^$|^\S|^(    )+\S)/)
       add_spacing_issue
+      @@final_spacing_string += "indentation spacing issue at line #{index} \n"
       return "indentation spacing issue at line #{index} \n"
     end
 
@@ -109,6 +119,7 @@ class Spacing < Issue
   def space_before_blocks(line, index)
     if line.match(/.?\S{/)
       add_spacing_issue
+      @@final_spacing_string += "space before \{ issue at line #{index} \n"
       return "space before \{ issue at line #{index} \n"
     end
     nil
@@ -117,6 +128,7 @@ class Spacing < Issue
   def space_in_parens(line, index)
     if line.match(/\( /) or line.match(/ \)/)
       add_spacing_issue
+      @@final_spacing_string += "unecessary space inside parenthesis issue at line #{index} \n"
       return "unecessary space inside parenthesis issue at line #{index} \n"
     end
     nil

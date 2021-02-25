@@ -1,5 +1,5 @@
 //This is incorrect
-obj[foo]
+obj[foo ]
 obj['foo']
 var x = { [b]: a }
 obj[foo[bar]]

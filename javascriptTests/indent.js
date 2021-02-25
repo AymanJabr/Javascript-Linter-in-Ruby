@@ -1,6 +1,6 @@
 //This is incorrect
 if (a) {
-    b = c;
+      b = c;
     function foo(d) {
         e = f;
     }

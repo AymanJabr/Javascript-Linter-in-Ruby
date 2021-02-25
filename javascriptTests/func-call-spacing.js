@@ -1,5 +1,5 @@
 //This is incorrect
-fn();
+fn ();
 
 fn
     ();
