@@ -32,7 +32,7 @@ Bad code:
 Good code:
 `var foo = 0;`
 Bad code:
-`var foo = 0;   `<= spaces at the of line
+`var foo = 0;    .`<= spaces at the end of the line
 
 #### computed-property-spacing (never)
 Good code:
