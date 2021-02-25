@@ -11,27 +11,99 @@ The specific rules that I choose to implement are listed below, these are the is
 ### Spacing Issues:
 
 #### array-bracket-spacing (never)
+Good code:
+`var arr = ['foo', 'bar'];`
+Bad code:
+`var arr = [ 'foo', 'bar' ];`
+
+#### block-spacing (always)
+Good code:
+`function foo() { return true; }`
+Bad code:
+`function foo() {return true; }`
+
+#### comma-spacing (before:false, after:true)
+Good code:
+`var foo = 1, bar = 2;`
+Bad code:
+`var foo = 1 , bar = 2;'`
+
+#### no-trailing-spaces
+Good code:
+`var foo = 0;`
+Bad code:
+`var foo = 0;   `<= spaces at the of line
+
+#### computed-property-spacing (never)
+Good code:
+`obj[foo]`
+Bad code:
+`obj[foo ]`
+
+#### func-call-spacing (never)
+Good code:
+`fn();`
+Bad code:
+`fn ();`
+
+#### semi-spacing (before: false, after: true)
+Good code:
+`var foo;`
+Bad code:
+`var foo ;`
+
+#### key-spacing (beforeColon:false, afterColon:true)
+Good code:
+`var obj = { "foo": 42 };`
+Bad code:
+`var obj = { "foo" :42 };`
+
+#### keyword-spacing (before:true, after:true)
+Good code:
+`if (foo) {`
+Bad code:
+`if(foo) {`
+
+#### indent (tab)
+Good code:
+`    b = c;`
+Bad code:
+`      b = c;`
+
+#### space-before-blocks (always)
+Good code:
+`if (a) {`
+Bad code:
+`if (a){`
+
+#### space-in-parens (never)
+Good code:
+`foo();`
+Bad code:
+`foo( );`
 
 
-block-spacing (always)
-comma-spacing (before:false, after:true)
-no-trailing-spaces
-computed-property-spacing (never)
-func-call-spacing (never)
-semi-spacing (before: false, after: true)
-key-spacing (beforeColon:false, afterColon:true)
-keyword-spacing (before:true, after:true)
-indent (tab)
-space-before-blocks (always)
-space-in-parens (never)
 
+### Syntax Issues:
 
-#### Syntax Issues:
+#### camelcase (always)
+Good code:
+`var myFavoriteColor = "#112C85";`
+Bad code:
+`var my_favorite_color = "#112C85";`
 
-camelcase (always)
-semi
-wrap-regex
-prefer-exponentiation-operator
+#### wrap-regex
+Good code:
+`return (/foo/).test("bar");`
+Bad code:
+`return /foo/.test("bar");`
+
+#### prefer-exponentiation-operator
+Good code:
+`const foo = 2**8;`
+Bad code:
+`const foo = Math.pow(2, 8);`
+
 
 
 ## Instructions
