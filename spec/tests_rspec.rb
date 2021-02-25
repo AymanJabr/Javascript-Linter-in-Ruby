@@ -4,8 +4,6 @@ require_relative '../lib/Syntax'
 spacing = Spacing.new
 syntax = Syntax.new
 
-# ruboco:disable Metrics/BlockLength
-
 RSpec.describe Spacing do
   describe '#array_bracket_spacing' do
     it 'gives [] spacing issues' do
@@ -36,29 +34,8 @@ RSpec.describe Spacing do
       expect(spacing.comma_spacing('var foo = 1, bar = 2;', 0)).to eql(nil)
     end
   end
-
-  describe '#no_trailing_spaces' do
-    it 'gives trailing spaces issues' do
-      expect(spacing.no_trailing_spaces('var foo = 0;   ', 0)).to eql("trailing space issue at line 0 \n")
-    end
-
-    it 'returns nil' do
-      expect(spacing.no_trailing_spaces('var foo = 0;', 0)).to eql(nil)
-    end
-  end
 end
-# ruboco:enable Metrics/BlockLength
 RSpec.describe Spacing do
-  describe '#semi_spacing' do
-    it 'gives ; spacing issues' do
-      expect(spacing.semi_spacing('var foo ;', 0)).to eql("; spacing issue at line 0 \n")
-    end
-
-    it 'returns nil' do
-      expect(spacing.semi_spacing('var foo;', 0)).to eql(nil)
-    end
-  end
-
   describe '#key_spacing' do
     it 'gives : spacing issues' do
       expect(spacing.key_spacing('var obj = { "foo" :42 };', 0)).to eql(": spacing issue at line 0 \n")
@@ -90,16 +67,6 @@ RSpec.describe Spacing do
   end
 end
 RSpec.describe Spacing do
-  describe '#computed_property_spacing' do
-    it 'gives spacing issues inside []' do
-      expect(spacing.computed_property_spacing('obj[foo ]', 0)).to eql("\[\] spacing issue at line 0 \n")
-    end
-
-    it 'returns nil' do
-      expect(spacing.computed_property_spacing('obj[foo]', 0)).to eql(nil)
-    end
-  end
-
   describe '#func_call_spacing' do
     it 'gives () spacing issues' do
       expect(spacing.func_call_spacing('fn ();', 0)).to eql("\(\) spacing issue at line 0 \n")
@@ -127,6 +94,35 @@ RSpec.describe Spacing do
 
     it 'returns nil' do
       expect(spacing.space_in_parens('foo();', 0)).to eql(nil)
+    end
+  end
+end
+RSpec.describe Spacing do
+  describe '#computed_property_spacing' do
+    it 'gives spacing issues inside []' do
+      expect(spacing.computed_property_spacing('obj[foo ]', 0)).to eql("\[\] spacing issue at line 0 \n")
+    end
+
+    it 'returns nil' do
+      expect(spacing.computed_property_spacing('obj[foo]', 0)).to eql(nil)
+    end
+  end
+  describe '#semi_spacing' do
+    it 'gives ; spacing issues' do
+      expect(spacing.semi_spacing('var foo ;', 0)).to eql("; spacing issue at line 0 \n")
+    end
+
+    it 'returns nil' do
+      expect(spacing.semi_spacing('var foo;', 0)).to eql(nil)
+    end
+  end
+  describe '#no_trailing_spaces' do
+    it 'gives trailing spaces issues' do
+      expect(spacing.no_trailing_spaces('var foo = 0;   ', 0)).to eql("trailing space issue at line 0 \n")
+    end
+
+    it 'returns nil' do
+      expect(spacing.no_trailing_spaces('var foo = 0;', 0)).to eql(nil)
     end
   end
 end
