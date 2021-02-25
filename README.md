@@ -8,9 +8,11 @@ This linter is based on the [ESLint Stylistic rules](https://eslint.org/docs/rul
 
 The specific rules that I choose to implement are listed below, these are the issues, that are most likely to face beginners in Javascript
 
-#### Spacing Issues:
+### Spacing Issues:
 
-array-bracket-spacing (never)
+#### array-bracket-spacing (never)
+
+
 block-spacing (always)
 comma-spacing (before:false, after:true)
 no-trailing-spaces
@@ -53,7 +55,8 @@ This Linter implementation makes use of RSpec in order to test each of its linte
 
 2) Navigate to the "spec" folder in the main file, using a terminal.
 
-3) run "RSpec tests_rspec.rb"
+3) run "RSpec tests_rspec.rb" or
+ "RSpec tests_rspec.rb --format d"
 
 4) The terminal should tell you how many tests passed, how many failed, and why they failed
 
