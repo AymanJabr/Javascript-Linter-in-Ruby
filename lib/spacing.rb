@@ -1,4 +1,4 @@
-require_relative './Issue'
+require_relative './issue'
 
 class Spacing < Issue
   def initialize

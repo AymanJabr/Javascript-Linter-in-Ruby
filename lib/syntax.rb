@@ -1,4 +1,4 @@
-require_relative './Issue'
+require_relative './issue'
 
 class Syntax < Issue
   def initialize

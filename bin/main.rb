@@ -1,6 +1,6 @@
-require_relative '../lib/Issue'
-require_relative '../lib/Spacing'
-require_relative '../lib/Syntax'
+require_relative '../lib/issue'
+require_relative '../lib/spacing'
+require_relative '../lib/syntax'
 
 issue = Issue.new
 spacing = Spacing.new
