@@ -1,5 +1,3 @@
-# require_relative '../lib/Issue.rb' maybe we don't need this
-
 require_relative '../lib/Issue'
 require_relative '../lib/Spacing'
 require_relative '../lib/Syntax'
@@ -8,12 +6,11 @@ issue = Issue.new
 spacing = Spacing.new
 syntax = Syntax.new
 
-# Add your files instead of './mainTest.js'
 entire_file = File.read('./mainTest.js')
 
 line_by_line = entire_file.split("\n")
 line_by_line_with_n = line_by_line
-# This array makes sure that each line is ended with a "\n"
+
 line_by_line_with_n.map do |line|
   line += "\n"
 end
