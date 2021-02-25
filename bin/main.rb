@@ -6,7 +6,7 @@ issue = Issue.new
 spacing = Spacing.new
 syntax = Syntax.new
 
-entire_file = File.read('../javascriptTests/block-spacing.js')
+entire_file = File.read('./mainTest.js')
 
 line_by_line = entire_file.split("\n")
 
