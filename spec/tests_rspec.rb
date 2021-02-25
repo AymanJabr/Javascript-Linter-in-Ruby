@@ -4,6 +4,8 @@ require_relative '../lib/Syntax'
 spacing = Spacing.new
 syntax = Syntax.new
 
+# ruboco:disable Metrics/BlockLength
+
 RSpec.describe Spacing do
   describe '#array_bracket_spacing' do
     it 'gives { spacing issues' do
@@ -77,7 +79,7 @@ RSpec.describe Spacing do
     end
   end
 end
-
+# ruboco:enable Metrics/BlockLength
 RSpec.describe Syntax do
   describe '#camelcase' do
     it 'gives camelcase syntax issues' do
