@@ -30,8 +30,8 @@ line_by_line.each_with_index do |line, line_index|
   syntax.prefer_exponentiation_operator(line, current_line)
 end
 
-syntax.output_to_Issue
-spacing.output_to_Issue
+syntax.output_to_issue
+spacing.output_to_issue
 
 issue.final_string
 puts issue.output_final_string
