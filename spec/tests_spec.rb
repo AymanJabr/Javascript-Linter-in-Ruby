@@ -1,5 +1,5 @@
-require_relative '../lib/Syntax'
-require_relative '../lib/Spacing'
+require_relative '../lib/syntax'
+require_relative '../lib/spacing'
 
 spacing = Spacing.new
 syntax = Syntax.new
