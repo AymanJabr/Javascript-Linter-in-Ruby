@@ -26,3 +26,4 @@ class Issue
   end
   # rubocop:enable Style/ClassVars
 end
+
