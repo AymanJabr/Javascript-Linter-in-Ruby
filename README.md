@@ -34,13 +34,28 @@ prefer-exponentiation-operator
 
 ## Instructions
 
-1) Clone or download the files
+1) Clone or download the files and unzip them
 
-2) Open the files and go to the "bin" folder, add to it the javascript file you wish to test
+2) Open the files and go to the "bin" folder, add the Javascript file that you wish to test to the bin folder.
 
-3) Add your files instead of './mainTest.js'
+3) On line 9 in the "main.rb" file, instead of "./mainTest.js" add the path to the JavascriptFile you wish to test.
 
-4) run "ruby main.rb" inside the bin folder on the command line, make sure to have ruby installed.
+4) Make sure that you have ruby installed on your local machine, [as seen here](https://www.ruby-lang.org/en/documentation/installation/)
+
+5) Using a terminal, navigate to the "bin" folder in the main file, and run "ruby main.rb".
+
+6) This will give you all the errors that the linter has found in your Javascript file.
+
+## Testing with RSpec
+This Linter implementation makes use of RSpec in order to test each of its linter methods, in order to test the methods with RSpec:
+
+1) Make sure to have RSpec installed on your local machine, [as seen here](https://github.com/rspec/rspec)
+
+2) Navigate to the "spec" folder in the main file, using a terminal.
+
+3) run "RSpec tests_rspec.rb"
+
+4) The terminal should tell you how many tests passed, how many failed, and why they failed
 
 ## Author 👤
 
