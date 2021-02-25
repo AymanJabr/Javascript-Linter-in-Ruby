@@ -1,3 +1,11 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "Guardfile"
+    - "Rakefile"
+
+  DisplayCopNames: true
+
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
@@ -7,17 +15,13 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  ExcludedMethods: ['describe']
+  IgnoredMethods: ['describe']
   Max: 30
 
 
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
-  Enabled: false
-Style/ClassVars:
-  Enabled: false
-Style/GuardClause:
   Enabled: false
 Style/EachForSimpleLoop:
   Enabled: false
@@ -37,10 +41,6 @@ Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 Lint/RaiseException:
   Enabled: false
-Lint/RequireParentheses:
-  Enabled: false
-Lint/EmptyExpression:
-  Enabled: false
 Lint/StructNewOverride:
   Enabled: false
 Style/HashEachMethods:
@@ -48,22 +48,4 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
-  Enabled: false
-Style/InfiniteLoop:
-  Enabled: false
-Naming/AccessorMethodName:
-  Enabled: false
-Naming/MethodName:
-  Enabled: false
-Naming/FileName:
-  Enabled: false
-Lint/LiteralAsCondition:
-  Enabled: false
-Metrics/CyclomaticComplexity:
-  Enabled: false
-Metrics/PerceivedComplexity:
-  Enabled: false
-Lint/UselessAssignment:
-  Enabled: false
-Metrics/BlockNesting:
   Enabled: false

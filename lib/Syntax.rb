@@ -11,6 +11,10 @@ class Syntax < Issue
     @@final_outputted_string += @@final_syntax_string
   end
 
+  def add_syntax_issue
+    @@syntax_issues += 1
+  end
+
   def camelcase(line, index)
     if line.match(/\S_\S/)
       @@final_syntax_string += "use camelCase for variable names at line #{index} \n"
@@ -20,6 +24,8 @@ class Syntax < Issue
 
   def semi(line, index)
     if line.match(/(\}[^;]|(?<!\{).*)[^;]$/)
+
+      add_syntax_issue
       @@final_syntax_string += "; syntax issue at line #{index} \n"
       @@syntax_issues += 1
     end
