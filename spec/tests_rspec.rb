@@ -46,26 +46,6 @@ RSpec.describe Spacing do
       expect(spacing.no_trailing_spaces('var foo = 0;', 0)).to eql(nil)
     end
   end
-
-  describe '#computed_property_spacing' do
-    it 'gives spacing issues inside []' do
-      expect(spacing.computed_property_spacing('obj[foo ]', 0)).to eql("\[\] spacing issue at line 0 \n")
-    end
-
-    it 'returns nil' do
-      expect(spacing.computed_property_spacing('obj[foo]', 0)).to eql(nil)
-    end
-  end
-
-  describe '#func_call_spacing' do
-    it 'gives () spacing issues' do
-      expect(spacing.func_call_spacing('fn ();', 0)).to eql("\(\) spacing issue at line 0 \n")
-    end
-
-    it 'returns nil' do
-      expect(spacing.func_call_spacing('fn();', 0)).to eql(nil)
-    end
-  end
 end
 # ruboco:enable Metrics/BlockLength
 RSpec.describe Spacing do
@@ -106,6 +86,27 @@ RSpec.describe Spacing do
 
     it 'returns nil' do
       expect(spacing.indent('    b = c;', 0)).to eql(nil)
+    end
+  end
+end
+RSpec.describe Spacing do
+  describe '#computed_property_spacing' do
+    it 'gives spacing issues inside []' do
+      expect(spacing.computed_property_spacing('obj[foo ]', 0)).to eql("\[\] spacing issue at line 0 \n")
+    end
+
+    it 'returns nil' do
+      expect(spacing.computed_property_spacing('obj[foo]', 0)).to eql(nil)
+    end
+  end
+
+  describe '#func_call_spacing' do
+    it 'gives () spacing issues' do
+      expect(spacing.func_call_spacing('fn ();', 0)).to eql("\(\) spacing issue at line 0 \n")
+    end
+
+    it 'returns nil' do
+      expect(spacing.func_call_spacing('fn();', 0)).to eql(nil)
     end
   end
 
