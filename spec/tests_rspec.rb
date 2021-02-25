@@ -42,7 +42,9 @@ RSpec.describe Spacing do
       expect(spacing.func_call_spacing('fn ();', 0)).to eql("\(\) spacing issue at line 0 \n")
     end
   end
-
+end
+# ruboco:enable Metrics/BlockLength
+RSpec.describe Spacing do
   describe '#semi_spacing' do
     it 'gives ; spacing issues' do
       expect(spacing.semi_spacing('var foo ;', 0)).to eql("; spacing issue at line 0 \n")
@@ -79,7 +81,6 @@ RSpec.describe Spacing do
     end
   end
 end
-# ruboco:enable Metrics/BlockLength
 RSpec.describe Syntax do
   describe '#camelcase' do
     it 'gives camelcase syntax issues' do
